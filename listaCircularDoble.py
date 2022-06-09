@@ -28,7 +28,7 @@ class ListaNumeros:
     def imprimir(self):
         print("\nLista completa: ")
         aux = self.primero
-        # Imprime cada carrito desde el que está para salir hasta el del fondo
+        # Imprime cada dato de la lista
         if(aux != None):
             if (aux.siguiente == aux.anterior):
                 print (aux.numero)
