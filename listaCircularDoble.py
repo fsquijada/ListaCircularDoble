@@ -16,11 +16,12 @@ class ListaNumeros:
 
         if (self.primero == None):
             self.primero = self.ultimo = nuevo
-            self.primero.anterior = self.primero.siguiente = self.ultimo.numero
+            self.primero.anterior = self.primero.siguiente = self.ultimo
         else:
-            nuevo.anterior = self.ultimo.numero
-            nuevo.siguiente = self.primero.numero
-            self.primero.anterior = self.ultimo.siguiente = nuevo
+            nuevo.anterior = self.ultimo
+            nuevo.siguiente = self.primero
+            self.ultimo.siguiente = nuevo
+            self.primero.anterior = nuevo
             self.ultimo = nuevo
             
     # Método para imprimir listado
@@ -32,7 +33,7 @@ class ListaNumeros:
             if (aux.siguiente == aux.anterior):
                 print (aux.numero)
             else:
-                while(aux.siguiente != self.primero.numero):
+                while(aux.siguiente != self.primero):
                     print (aux.numero)
                     aux = aux.siguiente
                 print (aux.numero)
@@ -43,10 +44,10 @@ class ListaNumeros:
         # Imprime el número buscado, el anterior y el siguiente
         if(self.primero == self.ultimo):
             if (aux.numero == numero):
-                print (f"anterior: {aux.anterior}, actual: {aux.numero}, siguiente: {aux.siguiente}.")
+                print (f"anterior: {aux.anterior.numero}, actual: {aux.numero}, siguiente: {aux.siguiente.numero}.")
         else:
             while (aux.anterior != self.ultimo.numero):
                 if (aux.numero == numero):
-                    print (f"anterior: {aux.anterior}, actual: {aux.numero}, siguiente: {aux.siguiente}.")
+                    print (f"anterior: {aux.anterior.numero}, actual: {aux.numero}, siguiente: {aux.siguiente.numero}.")
                     break
                 aux = aux.siguiente
